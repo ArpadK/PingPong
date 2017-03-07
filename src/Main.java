@@ -61,7 +61,7 @@ public class Main {
             super.paintComponent(graphics);
 
             //System.out.println("* Repaint *");
-            string probeersel = "joost";
+            String probeersel = "joost";
             if(probeersel == "joost"){
                 
             }
