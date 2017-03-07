@@ -14,6 +14,8 @@ import java.awt.event.KeyListener;
 
 public class Main {
     // code aanpassing
+
+    public int testi = 0;
     static int screenSize = 300;    //and width - screen is square
     static int paddleSize = 25;     //Actually half the paddle size - how much to draw on each side of center
     static int paddleDistanceFromSide = 10;  //How much space between each paddle and side of screen
@@ -59,7 +61,7 @@ public class Main {
             super.paintComponent(graphics);
 
             //System.out.println("* Repaint *");
-
+            testi ++;
             if (gameOver) {
                 graphics.drawString( "Game over!", 20, 30 );
                 return;
