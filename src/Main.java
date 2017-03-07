@@ -61,7 +61,7 @@ public class Main {
             super.paintComponent(graphics);
 
             //System.out.println("* Repaint *");
-            testi ++;
+            testi ++; je moetder
             if (gameOver) {
                 graphics.drawString( "Game over!", 20, 30 );
                 return;
