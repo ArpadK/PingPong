@@ -63,7 +63,7 @@ public class Main {
             //System.out.println("* Repaint *");
             String probeersel = "joost";
             if(probeersel == "joost"){
-                
+                //hooooofoft;
             }
             if (gameOver) {
                 graphics.drawString( "Game over!", 20, 30 );
