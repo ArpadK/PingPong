@@ -77,6 +77,7 @@ public class Main {
 
             graphics.setColor(Color.blue);
 
+            hooft;
             //While game is playing, these methods draw the ball, paddles, using the global variables
             //Other parts of the code will modify these variables
 
@@ -91,7 +92,7 @@ public class Main {
     }
 
     //Listen for user pressing a key, and moving human paddle in response
-    private static class KeyHandler implements KeyListener {
+    public static class KeyHandler implements KeyListener {
 
         @Override
         public void keyTyped(KeyEvent keyEvent) {
