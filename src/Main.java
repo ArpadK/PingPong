@@ -29,8 +29,8 @@ public class Main {
     static int humanPaddleSpeed = 0;      // "speed" is pixels moved up or down per clock tick
     static int computerPaddleSpeed = 0;   // same
 
-    static double  ballX = screenSize / 2;   //Imagine the ball is in a square box. These are the coordinates of the top of that box.
-    static double  ballY = screenSize / 2;   //So this starts the ball in (roughly) the center of the screen
+    static double  ballX = (double)screenSize / 2;   //Imagine the ball is in a square box. These are the coordinates of the top of that box.
+    static double  ballY = (double)screenSize / 2;   //So this starts the ball in (roughly) the center of the screen
     static int ballSize = 10;                //Diameter of ball
 
     static double ballSpeed = 5;   //Again, pixels moved per clock tick
