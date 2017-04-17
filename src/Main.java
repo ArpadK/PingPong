@@ -13,7 +13,9 @@ import java.awt.event.KeyListener;
 //TODO known issue - sometimes ball gets stuck behind human paddle
 
 public class Main {
+    // code aanpassing
 
+    public int testi = 0;
     static int screenSize = 300;    //and width - screen is square
     static int paddleSize = 25;     //Actually half the paddle size - how much to draw on each side of center
     static int paddleDistanceFromSide = 10;  //How much space between each paddle and side of screen
@@ -57,7 +59,10 @@ public class Main {
             super.paintComponent(graphics);
 
             //System.out.println("* Repaint *");
-
+            String probeersel = "joost";
+            if(probeersel == "joost"){
+                //hooooofoft;
+            }
             if (gameOver) {
                 graphics.drawString( "Game over!", 20, 30 );
                 return;
@@ -70,6 +75,7 @@ public class Main {
 
             graphics.setColor(Color.blue);
 
+            hooft;
             //While game is playing, these methods draw the ball, paddles, using the global variables
             //Other parts of the code will modify these variables
 
@@ -84,7 +90,7 @@ public class Main {
     }
 
     //Listen for user pressing a key, and moving human paddle in response
-    private static class KeyHandler implements KeyListener {
+    public static class KeyHandler implements KeyListener {
 
         @Override
         public void keyTyped(KeyEvent keyEvent) {
