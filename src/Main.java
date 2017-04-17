@@ -41,9 +41,7 @@ public class Main {
     //commented out versions for a different start angle
     //set this to whatever you want (but helps if you angle towards a player)
     static double ballDirection = Math.PI + 1;   //heading left and up
-    //static double ballDirection = 1;
-    //static double ballDirection = 0;   //heading right
-    //static double ballDirection = Math.PI;   //heading left
+
 
     static Timer timer;    //Ticks every *gameSpeed* milliseconds. Every time it ticks, the ball and computer paddle move
 
