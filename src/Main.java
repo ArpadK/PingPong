@@ -215,7 +215,7 @@ public class Main {
             ballDirection = (Math.PI) - ballDirection;
         }
         if(checkHitWall()){
-            ballDirection = ( (2 * Math.PI) - ballDirection );
+            ballDirection = (2 * Math.PI) - ballDirection;
         }
     }
 
