@@ -20,7 +20,6 @@ public class Main {
     static int paddleSize = 25;     //Actually half the paddle size - how much to draw on each side of center
     static int paddleDistanceFromSide = 10;  //How much space between each paddle and side of screen
 
-    static int gameSpeed = 75;  //How many milliseconds between clock ticks? Reduce this to speed up game
 
     static int computerPaddleY = screenSize / 2 ;    //location of the center of the paddles on the Y-axis of the screen
     static int humanPaddleY = screenSize / 2 ;
@@ -175,7 +174,7 @@ public class Main {
                 gamePanel.repaint();
             }
         };
-
+        int gameSpeed = 75;
         timer = new Timer(gameSpeed, gameUpdater);
         timer.start();    //Every time the timer ticks, the actionPerformed method of the ActionListener is called
     }
