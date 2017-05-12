@@ -1,4 +1,4 @@
-/**
+package MainPackage; /**
  * Created by arko1 on 07/03/2017.
  */
 import ValuesPackage.Values;
@@ -128,9 +128,9 @@ public class Main extends Super{
             public void actionPerformed(ActionEvent e) {
 
                 //gameUpdater is an inner class
-                //It's containing class is Main
-                //moveBall() and moveComputerPaddle belong to the outer class - Main
-                //So we have to say Main.moveBall() to refer to these methods
+                //It's containing class is MainPackage.Main
+                //moveBall() and moveComputerPaddle belong to the outer class - MainPackage.Main
+                //So we have to say MainPackage.Main.moveBall() to refer to these methods
                 if(!Main.checkGameOver()) {
                     Main.checkDirectionChange();
                     Main.moveBall();
