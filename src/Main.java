@@ -247,5 +247,9 @@ public class Main {
         return false;
     }
 
+    private int MethodToDoExtractMethod(int a, int b, int c){
+        a = a + b;
+        a = a + c;
+    }
 
 }
