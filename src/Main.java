@@ -16,6 +16,7 @@ import java.awt.event.KeyListener;
 
 public class Main {
 
+    public static final int gameSpeed = 75;
     static int screenSize = 300;    //and width - screen is square
     static int paddleSize = 25;     //Actually half the paddle size - how much to draw on each side of center
     static int paddleDistanceFromSide = 10;  //How much space between each paddle and side of screen
@@ -174,7 +175,7 @@ public class Main {
             }
         };
 
-        timer = new Timer(75, gameUpdater);
+        timer = new Timer(gameSpeed, gameUpdater);
         timer.start();    //Every time the timer ticks, the actionPerformed method of the ActionListener is called
     }
 
