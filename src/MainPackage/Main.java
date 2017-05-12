@@ -223,6 +223,10 @@ public class Main {
         return new Add(a, b, c).invoke();
     }
 
+    public int getRandomInt(){
+        return (int)Math.random();
+    }
+
     private class Add {
         private int a;
         private int b;
