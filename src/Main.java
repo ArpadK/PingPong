@@ -213,7 +213,7 @@ public class Main extends Super{
         }
         return false;
     }
-    private Values values = new Values(1,2,3);
+    private Values values = Values.createValues(1,2,3);
     private int MethodToDoExtractMethod(){
         return Add(values.getA(), values.getB(), values.getC());
     }
