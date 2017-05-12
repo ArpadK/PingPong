@@ -1,6 +1,8 @@
 /**
  * Created by arko1 on 07/03/2017.
  */
+import Values.Values;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -212,7 +214,7 @@ public class Main {
         if (checkHitComputePaddle()) {
             ballDirection = (Math.PI) - ballDirection;
         }
-        if(checkHitWall()){
+        if(checkBallHitWall()){
             ballDirection = (2 * Math.PI) - ballDirection;
         }
     }
@@ -247,8 +249,8 @@ public class Main {
         return false;
     }
 
-    private int MethodToDoExtractMethod(int a, int b, int c){
-        return Add(a, b, c);
+    private int MethodToDoExtractMethod(Values values){
+        return Add(values.getA(), values.getB(), values.getC());
     }
 
     private int Add(int a, int b, int c) {
