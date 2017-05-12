@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
 //TODO have paddle speed affect ball's direction
 //TODO known issue - sometimes ball gets stuck behind human paddle
 
-public class Main {
+public class Main extends Super{
 
     static int screenSize = 300;    //and width - screen is square
     static int paddleSize = 25;     //Actually half the paddle size - how much to draw on each side of center
