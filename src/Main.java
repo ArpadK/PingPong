@@ -252,9 +252,24 @@ public class Main {
     }
 
     private int Add(int a, int b, int c) {
-        a = a + b;
-        a = a + c;
-        return a;
+        return new Add(a, b, c).invoke();
     }
 
+    private class Add {
+        private int a;
+        private int b;
+        private int c;
+
+        public Add(int a, int b, int c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+        public int invoke() {
+            a = a + b;
+            a = a + c;
+            return a;
+        }
+    }
 }
