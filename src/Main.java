@@ -226,7 +226,7 @@ public class Main {
         return false;
     }
 
-    private static boolean checkHitWall(){
+    private static boolean checkBallHitWall(){
         if (ballY <= 0 || ballY >= screenSize-ballSize) {
             return true;
         }
