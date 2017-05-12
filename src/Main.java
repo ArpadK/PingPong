@@ -248,8 +248,13 @@ public class Main {
     }
 
     private int MethodToDoExtractMethod(int a, int b, int c){
+        return Add(a, b, c);
+    }
+
+    private int Add(int a, int b, int c) {
         a = a + b;
         a = a + c;
+        return a;
     }
 
 }
