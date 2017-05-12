@@ -1,7 +1,7 @@
 /**
  * Created by arko1 on 07/03/2017.
  */
-import Values.Values;
+import ValuesPackage.Values;
 
 import javax.swing.*;
 import java.awt.*;
@@ -213,7 +213,7 @@ public class Main extends Super{
         }
         return false;
     }
-    private Values values = new Values(1,2,3);
+    private Values values = new ValuesPackage.ValuesBuilder().setA(1).setB(2).setC(3).createValues();
     private int MethodToDoExtractMethod(){
         return Add(values.getA(), values.getB(), values.getC());
     }

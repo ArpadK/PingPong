@@ -1,4 +1,4 @@
-package Values;
+package ValuesPackage;
 
 public class Values {
     private final int a;
