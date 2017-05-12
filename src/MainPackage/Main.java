@@ -223,7 +223,7 @@ public class Main {
         return new Add(a, b, c).invoke();
     }
 
-    public int getRandomInt(){
+    public static int getRandomInt(){
         return (int)Math.random();
     }
 
