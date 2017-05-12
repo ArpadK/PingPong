@@ -14,8 +14,9 @@ import java.awt.event.KeyListener;
 //TODO have paddle speed affect ball's direction
 //TODO known issue - sometimes ball gets stuck behind human paddle
 
-public class Main extends Super{
+public class Main {
     static Main.GameDisplay gamePanel;   //draw the game components here
+    private final Super aSuper = new Super();
 
     private static class GameDisplay extends JPanel {
 
@@ -25,12 +26,12 @@ public class Main extends Super{
 
             //System.out.println("* Repaint *");
 
-            if (gameOver) {
+            if (Super.gameOver) {
                 graphics.drawString( "Game over!", 20, 30 );
                 return;
             }
 
-            if (removeInstructions ) {
+            if (Super.removeInstructions) {
                 graphics.drawString("Pong! Press up or down to move", 20, 30);
                 graphics.drawString("Press q to quit", 20, 60);
             }
@@ -41,11 +42,11 @@ public class Main extends Super{
             //Other parts of the code will modify these variables
 
             //Ball - a circle is just an oval with the height equal to the width
-            graphics.drawOval((int)ballX, (int)ballY, ballSize, ballSize);
+            graphics.drawOval((int) Super.ballX, (int) Super.ballY, Super.ballSize, Super.ballSize);
             //Computer paddle
-            graphics.drawLine(paddleDistanceFromSide, computerPaddleY - paddleSize, paddleDistanceFromSide, computerPaddleY + paddleSize);
+            graphics.drawLine(Super.paddleDistanceFromSide, Super.computerPaddleY - Super.paddleSize, Super.paddleDistanceFromSide, Super.computerPaddleY + Super.paddleSize);
             //Human paddle
-            graphics.drawLine(screenSize - paddleDistanceFromSide, humanPaddleY - paddleSize, screenSize - paddleDistanceFromSide, humanPaddleY + paddleSize);
+            graphics.drawLine(Super.screenSize - Super.paddleDistanceFromSide, Super.humanPaddleY - Super.paddleSize, Super.screenSize - Super.paddleDistanceFromSide, Super.humanPaddleY + Super.paddleSize);
 
         }
     }
@@ -68,7 +69,7 @@ public class Main extends Super{
         @Override
         public void keyPressed(KeyEvent ev) {
 
-            removeInstructions = true;   //game has started
+            Super.removeInstructions = true;   //game has started
 
             if (ev.getKeyCode() == KeyEvent.VK_DOWN) {
                 System.out.println("down key");
@@ -86,15 +87,15 @@ public class Main extends Super{
 
         private void moveDown() {
             //Coordinates decrease as you go up the screen, that's why this looks backwards.
-            if (humanPaddleY < screenSize - paddleSize) {
-                humanPaddleY+=humanPaddleMaxSpeed;
+            if (Super.humanPaddleY < Super.screenSize - Super.paddleSize) {
+                Super.humanPaddleY += Super.humanPaddleMaxSpeed;
             }
         }
 
         private void moveUp() {
             //Coordinates increase as you go down the screen, that's why this looks backwards.
-            if (humanPaddleY > paddleSize) {
-                humanPaddleY-=humanPaddleMaxSpeed;
+            if (Super.humanPaddleY > Super.paddleSize) {
+                Super.humanPaddleY -= Super.humanPaddleMaxSpeed;
             }
         }
 
@@ -114,7 +115,7 @@ public class Main extends Super{
 
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);   //Quit the program when we close this window
         window.setContentPane(content);
-        window.setSize(screenSize, screenSize);
+        window.setSize(Super.screenSize, Super.screenSize);
         window.setLocation(100,100);    //Where on the screen will this window appear?
         window.setVisible(true);
 
@@ -141,25 +142,25 @@ public class Main extends Super{
             }
         };
 
-        timer = new Timer(75, gameUpdater);
-        timer.start();    //Every time the timer ticks, the actionPerformed method of the ActionListener is called
+        Super.timer = new Timer(75, gameUpdater);
+        Super.timer.start();    //Every time the timer ticks, the actionPerformed method of the ActionListener is called
     }
 
     //Uses the current position of ball and paddle to move the computer paddle towards the ball
     protected static void moveComputerPaddle(){
 
-        int ballPaddleDifference = computerPaddleY - (int)ballY;
-        int distanceToMove = Math.min(Math.abs(ballPaddleDifference), computerPaddleMaxSpeed);
+        int ballPaddleDifference = Super.computerPaddleY - (int) Super.ballY;
+        int distanceToMove = Math.min(Math.abs(ballPaddleDifference), Super.computerPaddleMaxSpeed);
 
         if (ballPaddleDifference > 0 ) {   //Difference is positive - paddle is below ball on screen
-            computerPaddleY -= distanceToMove;
+            Super.computerPaddleY -= distanceToMove;
 
         } else if (ballPaddleDifference < 0){
-            computerPaddleY += distanceToMove;
+            Super.computerPaddleY += distanceToMove;
 
         } else {
             //Ball and paddle are aligned. Don't need to move!
-            computerPaddleSpeed = 0;
+            Super.computerPaddleSpeed = 0;
         }
 
     }
@@ -168,47 +169,47 @@ public class Main extends Super{
     //If so, bounce off the wall/paddle
     //And then move ball in the correct direction
     protected static void moveBall() {
-        ballX = ballX + (ballSpeed * Math.cos(ballDirection));
-        ballY = ballY + (ballSpeed * Math.sin(ballDirection));
+        Super.ballX = Super.ballX + (Super.ballSpeed * Math.cos(Super.ballDirection));
+        Super.ballY = Super.ballY + (Super.ballSpeed * Math.sin(Super.ballDirection));
     }
 
     private static void checkDirectionChange(){
         if (checkHitHumanPaddle()) {
-            ballDirection = (Math.PI) - ballDirection;
+            Super.ballDirection = (Math.PI) - Super.ballDirection;
         }
         if (checkHitComputePaddle()) {
-            ballDirection = (Math.PI) - ballDirection;
+            Super.ballDirection = (Math.PI) - Super.ballDirection;
         }
         if(checkBallHitWall()){
-            ballDirection = (2 * Math.PI) - ballDirection;
+            Super.ballDirection = (2 * Math.PI) - Super.ballDirection;
         }
     }
 
     private static boolean checkGameOver(){
-        if (ballX <= 0 || ballX >= screenSize ) {
-            gameOver = true;
-            timer.stop();
+        if (Super.ballX <= 0 || Super.ballX >= Super.screenSize) {
+            Super.gameOver = true;
+            Super.timer.stop();
             return true;
         }
         return false;
     }
 
     private static boolean checkBallHitWall(){
-        if (ballY <= 0 || ballY >= screenSize-ballSize) {
+        if (Super.ballY <= 0 || Super.ballY >= Super.screenSize - Super.ballSize) {
             return true;
         }
         return false;
     }
 
     private static boolean checkHitHumanPaddle(){
-        if (ballX >= screenSize-(paddleDistanceFromSide+(ballSize)) && (ballY > humanPaddleY-paddleSize && ballY < humanPaddleY+paddleSize)){
+        if (Super.ballX >= Super.screenSize -(Super.paddleDistanceFromSide +(Super.ballSize)) && (Super.ballY > Super.humanPaddleY - Super.paddleSize && Super.ballY < Super.humanPaddleY + Super.paddleSize)){
             return true;
         }
         return false;
     }
 
     private static boolean checkHitComputePaddle(){
-        if (ballX <= paddleDistanceFromSide && (ballY > computerPaddleY-paddleSize && ballY < computerPaddleY+paddleSize)){
+        if (Super.ballX <= Super.paddleDistanceFromSide && (Super.ballY > Super.computerPaddleY - Super.paddleSize && Super.ballY < Super.computerPaddleY + Super.paddleSize)){
             return true;
         }
         return false;
