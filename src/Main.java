@@ -213,13 +213,25 @@ public class Main extends Super{
         }
         return false;
     }
-
-    private int MethodToDoExtractMethod(Values values){
-        return Add(values.getA(), values.getB(), values.getC());
+    private Values values = new Values(1,2,3);
+    private int MethodToDoExtractMethod(){
+        return Add(getA(), values.getB(), values.getC());
     }
 
     private int Add(int a, int b, int c) {
         return new Add(a, b, c).invoke();
+    }
+
+    public int getA(){
+        return values.getA();
+    }
+
+    public int getB(){
+        return values.getB();
+    }
+
+    public int getC(){
+        return values.getC();
     }
 
     private class Add {
